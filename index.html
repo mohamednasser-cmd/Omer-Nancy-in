@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة زفاف عمر & نانسي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* استدعاء صورة الخلفية bg.jpg */
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 10px;
+            color: #4a3e3d;
+            position: relative;
+        }
+
+        /* طبقة حماية شفافة لفتح الصوت بسهولة */
+        .overlay-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            backdrop-filter: blur(4px);
+        }
+
+        .open-btn {
+            background: #d4a398;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.3rem;
+            font-family: 'Cairo', sans-serif;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .open-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* كارت الدعوة */
+        .invitation-card {
+            background: rgba(251, 244, 240, 0.92);
+            border-radius: 200px 200px 20px 20px;
+            max-width: 480px;
+            width: 100%;
+            padding: 50px 30px 40px 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 2px solid #e2c0b7;
+            outline: 6px solid rgba(251, 244, 240, 0.8);
+            outline-offset: -12px;
+        }
+
+        .inner-frame {
+            border: 1px solid #d4a398;
+            border-radius: 180px 180px 10px 10px;
+            padding: 30px 15px;
+        }
+
+        .header-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #5c4a48;
+            margin-bottom: 20px;
+        }
+
+        .names-container {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .name {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 2.8rem;
+            color: #2b2322;
+            font-weight: 700;
+        }
+
+        .ampersand {
+            font-size: 2rem;
+            color: #b87d7b;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #c79c93, transparent);
+            margin: 15px auto;
+            width: 70%;
+        }
+
+        .info-block {
+            margin: 10px 0;
+        }
+
+        .info-label {
+            font-size: 0.95rem;
+            color: #7d6563;
+        }
+
+        .info-detail {
+            font-size: 1.15rem;
+            color: #2b2322;
+            font-weight: 700;
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            color: #4a3e3d;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الشاشة الافتتاحية لتشغيل الصوت -->
+    <div class="overlay-screen" id="overlay">
+        <button class="open-btn" onclick="openInvitation()">فتح دعوة الزفاف ✉️</button>
+    </div>
+
+    <!-- ملف الصوت song.mp3 -->
+    <audio id="weddingSong" loop preload="auto">
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- بطاقة الدعوة -->
+    <div class="invitation-card">
+        <div class="inner-frame">
+            <p class="header-text">
+                بكل الحب والود<br>
+                ندعوكم لمشاركتنا أجمل لحظاتنا<br>
+                في يوم زفافنا
+            </p>
+
+            <div class="names-container">
+                <span class="name">عمر</span>
+                <span class="ampersand">&</span>
+                <span class="name">نانسي</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="info-block">
+                <p class="info-label">اليوم</p>
+                <p class="info-detail">19/9/2026</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="info-block">
+                <p class="info-label">المعياد</p>
+                <p class="info-detail">الساعة 7 مساءً</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="info-block">
+                <p class="info-label">العنوان</p>
+                <p class="info-detail">دار المركبات ، قاعة لاسيلا ، صلاح سالم</p>
+            </div>
+
+            <div class="divider"></div>
+            
+            <p class="footer-text">بحضوركم يتم لنا الفرح والسرور</p>
+        </div>
+    </div>
+
+    <script>
+        function openInvitation() {
+            // تشغيل الأغنية إخفاء الشاشة الشفافة
+            var audio = document.getElementById("weddingSong");
+            audio.play();
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
